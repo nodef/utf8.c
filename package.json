@@ -1,0 +1,25 @@
+{
+  "name": "utf8.c",
+  "version": "1.2025.1",
+  "description": "📚 Single header utf8 string functions for C and C++; Neil Henning (2015).",
+  "keywords": [
+    "c",
+    "library",
+    "utf8",
+    "utf-8",
+    "string",
+    "header-only",
+    "unicode",
+    "string"
+  ],
+  "homepage": "https://github.com/nodef/utf8.c#readme",
+  "bugs": {
+    "url": "https://github.com/nodef/utf8.c/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/utf8.c.git"
+  },
+  "license": "UNLICENSED",
+  "main": "utf8.h"
+}
