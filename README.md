@@ -1,7 +1,7 @@
 # 📚 utf8.h
 
+<!-- [![Build status](https://ci.appveyor.com/api/projects/status/phfjjahhs9j4gxvs?svg=true)](https://ci.appveyor.com/project/sheredom/utf8-h) -->
 [![Actions Status](https://github.com/sheredom/utf8.h/workflows/CMake/badge.svg)](https://github.com/sheredom/utf8.h/actions)
-[![Build status](https://ci.appveyor.com/api/projects/status/phfjjahhs9j4gxvs?svg=true)](https://ci.appveyor.com/project/sheredom/utf8-h)
 [![Sponsor](https://img.shields.io/badge/💜-sponsor-blueviolet)](https://github.com/sponsors/sheredom)
 
 A simple one header solution to supporting utf8 strings in C and C++, by
@@ -64,23 +64,57 @@ utf8upr | ~~&#10004;~~ |
 utf8lwrcodepoint | ~~&#10004;~~ | &#10004;
 utf8uprcodepoint | ~~&#10004;~~ | &#10004;
 
+<br>
+
 ## Installation ##
 
 Run:
-```bash
+
+```sh
 $ npm i utf8.c
 ```
 
 And then include `utf8.h` as follows:
+
 ```c
+// main.c
 #include "node_modules/utf8.c/utf8.h"
+
+int main() { /* ... */ }
 ```
+
+And then compile with `clang` or `gcc` as usual.
+
+```bash
+$ clang main.c  # or, use gcc
+$ gcc   main.c
+```
+
+You may also use a simpler approach:
+
+```c
+// main.c
+#include <utf8.h>
+
+int main() { /* ... */ }
+```
+
+If you add the path `node_modules/utf8.c` to your compiler's include paths.
+
+```bash
+$ clang -I./node_modules/utf8.c main.c  # or, use gcc
+$ gcc   -I./node_modules/utf8.c main.c
+```
+
+<br>
 
 ## Usage ##
 
 The current supported platforms are Linux, macOS and Windows.
 
 The current supported compilers are gcc, clang, MSVC's cl.exe, and clang-cl.exe.
+
+<br>
 
 ## Design ##
 
@@ -89,6 +123,8 @@ The utf8.h API matches the string.h API as much as possible by design. There are
 utf8.h uses char8_t* in C++ 20 instead of char*
 
 Anywhere in the string.h or strings.h documentation where it refers to 'bytes' I have changed that to utf8 codepoints. For instance, utf8len will return the number of utf8 codepoints in a utf8 string - which does not necessarily equate to the number of bytes.
+
+<br>
 
 ## API function docs ##
 
@@ -288,6 +324,8 @@ utf8_int32_t utf8uprcodepoint(utf8_int32_t cp);
 ```
 Make a codepoint upper case if possible.
 
+<br>
+
 ## Codepoint Case
 
 Various functions provided will do case insensitive compares, or transform utf8
@@ -303,11 +341,15 @@ insensitive code:
 * [Greek and Coptic](https://en.wikipedia.org/wiki/Greek_and_Coptic)
 * [Cyrillic](https://en.wikipedia.org/wiki/Cyrillic_(Unicode_block))
 
+<br>
+
 ## Todo ##
 
 - Implement utf8coll (akin to strcoll).
 - Implement utf8fry (akin to strfry).
 - Investigate adding dst buffer sizes for utf8cpy and utf8cat to catch overwrites (as suggested by [@FlohOfWoe](https://twitter.com/FlohOfWoe) in https://twitter.com/FlohOfWoe/status/618669237771608064)
+
+<br>
 
 ## License ##
 
